@@ -84,6 +84,40 @@ public class XLSReader {
 		return cell.getStringCellValue();
 	}
 	
-//	String FilePath = ".\\TestData\\ElementsTab.xlsx";
+public int getNumericCellData(String sheetName, String columnName, int rowNum) {
+		
+		if(rowNum<=0)
+		return 0;
+		int index = workbook.getSheetIndex(sheetName);
+		int colNum = -1;
+		
+		if (index == -1)
+			return 0;
+		sheet = workbook.getSheetAt(index);
+		row = sheet.getRow(0);
+		
+		for(int i=0;i<row.getLastCellNum();i++)
+		{
+			if((row.getCell(i).getStringCellValue().trim()).equals(columnName.trim()))
+			{
+				colNum=i;
+			}
+		}
+		if (colNum == -1)
+			return 0;
+		
+		sheet = workbook.getSheetAt(index);
+		row = sheet.getRow(rowNum-1);
+		if(row==null)
+			return 0;
+		
+		cell = row.getCell(colNum);
+		if(cell == null)
+			return 0;
+//		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
+		return (int) cell.getNumericCellValue();
+	}
+	
+
 
 }

@@ -33,7 +33,7 @@ public class CommonFunctions extends PageObject{
 	
 	public void clickOnElement(WebElement ele) throws InterruptedException
 	{
-		if(elementIsVisible(ele))
+		if(waitForElementToBeClickable(ele))
 		{
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("arguments[0].click()", ele);
@@ -76,8 +76,20 @@ public class CommonFunctions extends PageObject{
 		action.sendKeys(Keys.TAB).build().perform();
 	}
 	
-	public void clickOn(final WebElement webElement) {
+	public void enterData(WebElement e, int text) {
+		waitForElementToAppear(e);
+		e.clear();
+		e.sendKeys(String.valueOf(text));
+		Actions action = new Actions(getDriver());
+		action.sendKeys(Keys.TAB).build().perform();
+	}
+	
+	public void clickOn(final WebElement webElement)  {
 		element(webElement).click();
+	}
+	
+	public void explicitWait() {
+//		WebDriverWait wait = new WebDriverWait(getDriver());
 	}
 
 }

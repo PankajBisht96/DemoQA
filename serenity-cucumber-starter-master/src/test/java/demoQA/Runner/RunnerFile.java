@@ -6,7 +6,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features= {"Resources/Features"},glue={"demoQA.StepDefinitions","demoQA.Hooks"})
+@CucumberOptions(tags = "@WebTablesAddData", features = { "Resources/Features" }, glue = { "demoQA.StepDefinitions",
+		"demoQA.Hooks" })
 public class RunnerFile {
 
 }

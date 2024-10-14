@@ -10,7 +10,7 @@ public class ElementPageSteps extends PageObject{
 	public void verifyElementsTabSelected() {
 		elementsPage.verifyElementPageIsLoaded();
 	}
-	
+
 	public void clickOnTextBoxButton() {
 		elementsPage.clickOnTextBoxTab();
 	}
@@ -26,4 +26,50 @@ public class ElementPageSteps extends PageObject{
 	public void verifyEnteredData(String testflow) {
 		elementsPage.verifySubmittedDataInTextBox(testflow);
 	}
+	
+	//-----------------------------CheckBox---------------------------------------
+	
+	public void selectCheckBoxTab() {
+		elementsPage.clickOnCheckBoxTab();
+	}
+	
+	public void selectHomeCheckBox() {
+		elementsPage.clickOnHomeCheckBox();
+	}
+	
+	public void verifyEachCheckBoxSelected() {
+		elementsPage.verifyAllCheckBoxSelected();
+	}
+	
+	//-----------------------------RadioButton---------------------------------------
+	
+	public void selectRadioButtonTab() throws InterruptedException {
+		elementsPage.clickOnRadioButtonTab();
+	}
+	public void selectRadioButton(String option) throws InterruptedException {
+		elementsPage.RadioButtonSelection(option);
+	}
+	
+	public void checkSuccessMessage(String option) {
+		elementsPage.validateSuccessMessage(option);
+	}
+	
+	//---------------------------WebTables-------------------------------------
+	
+	public void selectWebTablesTab() throws InterruptedException {
+		elementsPage.clickOnWebTablesTab();
+	}
+	
+	public void clickOnAddButton() throws InterruptedException {
+		elementsPage.clickOnAdd();
+	}
+	
+	public void addNewRow(String testflow) {
+		elementsPage.addNewRecord(testflow);
+	}
+	
+	public void verifyNewRow(String testflow) throws InterruptedException {
+		elementsPage.verifyNewRecord(testflow);
+	}
+	
 }
